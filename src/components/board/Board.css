@@ -1,5 +1,5 @@
 .boardWrapper {
-    margin: 0 auto;
+    margin: 32px auto;
     text-align: center;
     background: url('../../assets/images/board.svg') no-repeat center;
 }

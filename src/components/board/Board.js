@@ -6,8 +6,8 @@ export default class Board extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            boardHeight: window.innerHeight * 0.75,
-            boardWidth: window.innerHeight * 0.75 / 0.6
+            boardHeight: 0,
+            boardWidth: 0
         }
     }
 
@@ -23,15 +23,15 @@ export default class Board extends React.Component {
     updateWindowDimensions = () => {
         const windowHeight = window.innerHeight;
         const windowWidth = window.innerWidth;
-        if (windowWidth < windowHeight * 0.75 / 0.6) {
+        if (windowWidth < windowHeight * 0.90 / 0.6) {
             this.setState({
                 boardHeight: (windowWidth - 24) * 0.6,
                 boardWidth: windowWidth - 24
             });
         } else {
             this.setState({
-                boardHeight: windowHeight * 0.75,
-                boardWidth: windowHeight * 0.75 / 0.6
+                boardHeight: windowHeight * 0.90,
+                boardWidth: windowHeight * 0.90 / 0.6
             });
         }
     };

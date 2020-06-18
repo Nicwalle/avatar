@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: -24px;
+    margin-bottom: 32px;
+}
+
+.child {
+    width: 22%;
+    margin: 0 24px;
+}
+
+.sizaineName {
+    font-size:112px;
+    margin-top: 8px;
+    margin-bottom:16px;
+    color: rgba(165, 117, 86, 0.63);
+    text-shadow: 1px 4px 6px #D89E73, 0 0 0 #000, 1px 4px 6px #D89E73;
+}
+
+.scoreContainer {
+    color: rgba(165, 117, 86, 0.63);
+    text-shadow: 1px 4px 6px #D89E73, 0 0 0 #000, 1px 4px 6px #D89E73;
+}
+
+.score {
+    display: block;
+    font-size: 164px;
+    margin-top: 60px;
+}
