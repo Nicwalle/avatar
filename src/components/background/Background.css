@@ -29,37 +29,37 @@
     top: 75px;
     width: 250px;
     animation-duration: 30s;
-    left:1320px;
+    right: 10px;
 }
 
 .cloud2 {
-    top: 380px;
+    top: 580px;
     width: 250px;
     animation-duration: 35s;
-    left:130px;
+    left:30px;
 }
 
 .cloud3 {
-    top: 500px;
+    top: 700px;
     width: 220px;
     animation-duration: 50s;
-    left: 1300px;
+    right: -30px;
 }
 
 .cloud4 {
     top: 200px;
     width: 270px;
     animation-duration: 45s;
-    left: 10px;
+    left: -10px;
 }
 
 .cloud5 {
-    top: 300px;
+    top: 350px;
     width: 200px;
     animation-duration: 40s;
-    left: 1200px;
+    right: -50px;
 }
-
+/*
 @keyframes aangFly {
     0% {bottom: 0; right: -20px; width: 28%}
     50% {bottom: -20px; right: 0; width: 30%}
@@ -70,3 +70,4 @@
     from {left: -300px;}
     to {left: 100%;}
 }
+*/
