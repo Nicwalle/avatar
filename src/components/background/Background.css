@@ -1,0 +1,56 @@
+.aangImage {
+    position: absolute;
+    bottom: -10px;
+    right: -40px;
+    width: 30%;
+}
+
+.zukoImage {
+    position: absolute;
+    bottom: -25px;
+    left: 40px;
+    width: 15%;
+}
+
+.cloud {
+    position: absolute;
+    z-index: -1;
+    animation-name: leftToRight;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.cloud1 {
+    top: 75px;
+    width: 250px;
+    animation-duration: 30s;
+}
+
+.cloud2 {
+    top: 380px;
+    width: 250px;
+    animation-duration: 35s;
+}
+
+.cloud3 {
+    top: 500px;
+    width: 220px;
+    animation-duration: 50s;
+}
+
+.cloud4 {
+    top: 200px;
+    width: 270px;
+    animation-duration: 45s;
+}
+
+.cloud5 {
+    top: 300px;
+    width: 200px;
+    animation-duration: 40s;
+}
+
+@keyframes leftToRight {
+    from {left: -300px;}
+    to {left: 100%;}
+}

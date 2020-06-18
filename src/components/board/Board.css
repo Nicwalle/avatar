@@ -1,0 +1,9 @@
+.boardWrapper {
+    margin: 0 auto;
+    text-align: center;
+    background: url('../../assets/images/board.svg') no-repeat center;
+}
+
+.boardContent {
+    padding: 8px;
+}
