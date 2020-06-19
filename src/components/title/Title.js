@@ -5,7 +5,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import AppBar from "@material-ui/core/AppBar";
-import {useHistory} from "react-router-dom";
 import {makeStyles} from "@material-ui/core/styles";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import {ArrowBack} from "@material-ui/icons";
@@ -17,10 +16,11 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-export default function Title() {
+export default function Title(props) {
 
     const classes = useStyles();
-    const history = useHistory();
+
+    let {goBack} = props;
 
     return <AppBar position={'static'}>
         <Container>
@@ -29,7 +29,7 @@ export default function Title() {
                     Avatar Progress
                 </Typography>
                 <span style={{position: 'absolute', left: 0}}>
-                    <Button color="inherit" onClick={()=> history.push('/')}>
+                    <Button color="inherit" onClick={goBack}>
                         <SvgIcon component={ArrowBack}/>
                     </Button>
                 </span>
