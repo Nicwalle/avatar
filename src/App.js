@@ -15,7 +15,26 @@ import "firebase/firestore";
 
 firebase.initializeApp(firebaseKey);
 
+firebase.firestore().settings({
+    cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED
+});
+
+firebase.firestore().enablePersistence().catch((err) => {
+    switch (err.code) {
+        case 'failed-precondition':
+            console.log("[Persistence error] Only one tab at the time!");
+            break;
+        case 'unimplemented':
+            console.log("[Persistence error] The current browser does not support persistence");
+            break;
+        default:
+            break
+    }
+});
+
 const db = firebase.firestore();
+
+
 
 export default class App extends React.Component {
 

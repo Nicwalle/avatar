@@ -42,7 +42,7 @@ export default function SizaineSettingsCard(props) {
             <Grid container direction={'column'} alignItems={'center'}>
                 <Grid item>
                     <CardMedia
-                        image={'/images/'+sizaine.name+ '.png'}
+                        image={`https://firebasestorage.googleapis.com/v0/b/avatar-progress.appspot.com/o/${sizaine.name}.png?alt=media`}
                         className={classes.cardMedia}
                         title={sizaine.name}
                     />
@@ -50,7 +50,7 @@ export default function SizaineSettingsCard(props) {
                 <Grid item>
                     <CardContent className={classes.cardContent}>
                         <Typography className={classes.sizaineName}>{sizaine.name}</Typography>
-                        <Typography className={classes.sizaineScore}><b>{score}</b> points</Typography>
+                        <Typography className={classes.sizaineScore}><b style={{fontSize:24}}>{score}</b> points</Typography>
                     </CardContent>
                 </Grid>
             </Grid>
