@@ -1,40 +1,56 @@
 import React from "react";
 import './App.css'
-import Title from "./components/title/Title";
-import Board from "./components/board/Board";
-import Background from "./components/background/Background";
-import SizaineProgress from "./components/sizaineProgress/SizaineProgress";
+import DisplayPage from "./pages/DisplayPage";
+import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
+import SettingsPage from "./pages/SettingsPage";
+import SizaineSettingsPage from "./pages/SizaineSettingsPage";
+import firebaseKey from "./firebaseKey";
 
-import data from "./data";
+// Firebase App (the core Firebase SDK) is always required and
+// must be listed before other Firebase SDKs
+import * as firebase from "firebase/app";
+
+// Add the Firebase services that you want to use
+import "firebase/firestore";
+
+firebase.initializeApp(firebaseKey);
+
+const db = firebase.firestore();
 
 export default class App extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            data,
-            currentDisplay: 0
+            data: [],
+            showSettings: false
         };
     }
 
     componentDidMount() {
-        this.carouselInterval = setInterval(()=> this.setState({currentDisplay: (this.state.currentDisplay + 1) % 6}), 5000)
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.carouselInterval)
+        db.collection('Sizaines').onSnapshot((sizaines) => {
+            let newData = [];
+            sizaines.forEach(sizaine => {
+                newData = [sizaine.data(), ...newData];
+            });
+            this.setState({data: newData});
+        })
     }
 
     render() {
-        return <>
-            <Board>
-                {this.state.data.map((sizaine, index) => {
-                    console.log(index);
-                    return <SizaineProgress visible={this.state.currentDisplay === index} {...sizaine}/>
-                })}
-            </Board>
-            <Background/>
-        </>;
+        return <Router>
+                <Switch>
+                    <Route path="/settings/:sizaine">
+                        <SizaineSettingsPage data={this.state.data}/>
+                    </Route>
+                    <Route path="/settings">
+                        <SettingsPage data={this.state.data}/>
+                    </Route>
+                    <Route path="/">
+                        <DisplayPage data={this.state.data}/>
+                    </Route>
+                </Switch>
+        </Router>
     }
 
 

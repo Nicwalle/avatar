@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: -24px;
+    margin-bottom: 32px;
+}
+
+.child {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sizaineName {
+    font-size:112px;
+    font-family: Herculanum, sans-serif;
+    margin-top: 8px;
+    margin-bottom:16px;
+    color: rgba(165, 117, 86, 0.63);
+    text-shadow: 1px 4px 6px #D89E73, 0 0 0 #000, 1px 4px 6px #D89E73;
+}
+
+.score {
+    display: block;
+    font-size: 156px;
+}
+
+.score>.paperSheet {
+    width: 96px;
+}
+
+.paperSheet {
+    background-image: url("../../assets/images/papaer-texture.jpg");
+    background-size: cover;
+    margin:4px;
+    display: inline-block;
+    color: #5a5a5a;
+    box-shadow: 5px 5px 5px #5a5a5a;
+    border-radius: 2px;
+    font-family: Herculanum, sans-serif;
+}
+
+.bonusLabel {
+    color: rgba(165, 117, 86, 0.63);
+    text-shadow: 1px 4px 6px #D89E73, 0 0 0 #000, 1px 4px 6px #D89E73;
+    font-size: 64px;
+    display: block;
+    font-family: Herculanum, sans-serif;
+}
+
+.bonus>.paperSheet {
+    width: 48px;
+    font-size: 56px;
+    height: 72px;
+    line-height: 72px;
+}

@@ -7,9 +7,10 @@ import CloudImage3 from '../../assets/images/cloud3.svg';
 import CloudImage4 from '../../assets/images/cloud4.svg';
 import './Background.css';
 
-export default function Background() {
+export default function Background(props) {
+    let {onShowSettings} = props;
     return <>
-        <img src={AangImage} alt={'Aang'} className={'aangImage'}/>
+        <img src={AangImage} alt={'Aang'} className={'aangImage'} onDoubleClick={onShowSettings}/>
         <img src={ZukoImage} alt={'Zuko'} className={'zukoImage'}/>
         <img src={CloudImage1} alt={'Cloud'} className={'cloud cloud1'}/>
         <img src={CloudImage2} alt={'Cloud'} className={'cloud cloud2'}/>

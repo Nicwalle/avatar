@@ -7,7 +7,7 @@
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
-
+    z-index:2;
 }
 
 .zukoImage {
@@ -15,11 +15,12 @@
     bottom: -25px;
     left: 40px;
     width: 18%;
+    z-index: 2;
 }
 
 .cloud {
     position: absolute;
-    z-index: -1;
+    z-index: 0;
     animation-name: leftToRight;
     animation-timing-function: linear;
     animation-iteration-count: infinite;

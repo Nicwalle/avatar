@@ -1,44 +1,56 @@
 export default [
     {
         name: 'Girafes',
-        air: 41,
-        water: 2,
-        fire: 11,
-        earth: 0
+        air: Math.round(Math.random()*25),
+        water: Math.round(Math.random()*25),
+        fire: Math.round(Math.random()*25),
+        earth: Math.round(Math.random()*25),
+        bonus: (Math.random() > 0.5 ? -1 : 1) * Math.round(Math.random() * 100),
+        color: 'linear-gradient(to right, #FE9401,#FF6E00)',
     },
     {
         name: 'Crocodiles',
-        air: 12,
-        water: 14,
-        fire: 4,
-        earth: 8
+        air: Math.round(Math.random()*25),
+        water: Math.round(Math.random()*25),
+        fire: Math.round(Math.random()*25),
+        earth: Math.round(Math.random()*25),
+        bonus: (Math.random() > 0.5 ? -1 : 1) * Math.round(Math.random() * 100),
+        color: 'linear-gradient(to right, #1ecd64, #1AB639)',
     },
     {
         name: 'Chiens',
-        air: Math.round(Math.random()*100),
-        water: Math.round(Math.random()*100),
-        fire: Math.round(Math.random()*100),
-        earth: Math.round(Math.random()*100)
+        air: Math.round(Math.random()*25),
+        water: Math.round(Math.random()*25),
+        fire: Math.round(Math.random()*25),
+        earth: Math.round(Math.random()*25),
+        bonus: (Math.random() > 0.5 ? -1 : 1) * Math.round(Math.random() * 100),
+        color: 'linear-gradient(to right, #8d6225,#713100)',
     },
     {
         name: 'Lapins',
-        air: Math.round(Math.random()*100),
-        water: Math.round(Math.random()*100),
-        fire: Math.round(Math.random()*100),
-        earth: Math.round(Math.random()*100)
+        air: Math.round(Math.random()*25),
+        water: Math.round(Math.random()*25),
+        fire: Math.round(Math.random()*25),
+        earth: Math.round(Math.random()*25),
+        bonus: (Math.random() > 0.5 ? -1 : 1) * Math.round(Math.random() * 100),
+        color: 'linear-gradient(to right, #3f7dfa, #133fa0)',
     },
     {
-        name: 'Elephants',
-        air: Math.round(Math.random()*100),
-        water: Math.round(Math.random()*100),
-        fire: Math.round(Math.random()*100),
-        earth: Math.round(Math.random()*100)
+        name: 'Lionceaux',
+        air: Math.round(Math.random()*25),
+        water: Math.round(Math.random()*25),
+        fire: Math.round(Math.random()*25),
+        earth: Math.round(Math.random()*25),
+        bonus: (Math.random() > 0.5 ? -1 : 1) * Math.round(Math.random() * 100),
+        color: 'linear-gradient(to right, #FE3A2F,#E70401)',
     },
     {
         name: 'Pythons',
-        air: Math.round(Math.random()*100),
-        water: Math.round(Math.random()*100),
-        fire: Math.round(Math.random()*100),
-        earth: Math.round(Math.random()*100)
+        air: Math.round(Math.random()*25),
+        water: Math.round(Math.random()*25),
+        fire: Math.round(Math.random()*25),
+        earth: Math.round(Math.random()*25),
+        bonus: (Math.random() > 0.5 ? -1 : 1) * Math.round(Math.random() * 100),
+        color: 'linear-gradient(to right, #3f8b00,#00a23b)',
     }
 ];

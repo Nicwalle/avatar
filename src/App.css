@@ -2,7 +2,3 @@
     font-family: 'herculanum';
     src: url('assets/fonts/herculanum.ttf')  format('truetype');
 }
-
-h1, h2, h3, h4, h5, h6, p, span {
-    font-family: Herculanum, sans-serif;
-}
