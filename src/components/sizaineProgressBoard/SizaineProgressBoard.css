@@ -18,18 +18,20 @@
 .sizaineName {
     font-size:112px;
     font-family: Herculanum, sans-serif;
-    margin-top: 8px;
+    margin-top:8px;
     margin-bottom:16px;
+    line-height: 112px;
     color: rgba(165, 117, 86, 0.63);
     text-shadow: 1px 4px 6px #D89E73, 0 0 0 #000, 1px 4px 6px #D89E73;
 }
 
 .score {
     display: block;
-    font-size: 156px;
 }
 
 .score>.paperSheet {
+    font-size: 156px;
+    line-height: 156px;
     width: 96px;
 }
 
@@ -55,6 +57,53 @@
 .bonus>.paperSheet {
     width: 48px;
     font-size: 56px;
-    height: 72px;
     line-height: 72px;
+}
+
+@media only screen and (max-width: 1100px) {
+    .sizaineName {
+        font-size: 72px;
+        line-height: 72px;
+        margin-top: -16px;
+    }
+
+    .score>.paperSheet {
+        font-size: 56px;
+        line-height: 76px;
+        width: 48px;
+    }
+
+    .bonusLabel {
+        font-size: 36px;
+    }
+
+    .bonus>.paperSheet {
+        width: 36px;
+        font-size: 36px;
+        line-height: 48px;
+    }
+}
+
+@media only screen and (max-width: 648px) {
+    .sizaineName {
+        font-size: 24px;
+        line-height: 24px;
+
+    }
+
+    .score>.paperSheet {
+        font-size: 32px;
+        line-height: 32px;
+        width: 24px;
+    }
+
+    .bonus>.paperSheet {
+        width: 18px;
+        font-size: 28px;
+        line-height: 28px;
+    }
+
+    .bonusLabel {
+        font-size: 18px;
+    }
 }

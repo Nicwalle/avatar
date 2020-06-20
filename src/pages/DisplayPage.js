@@ -11,8 +11,9 @@ export default function DisplayPage(props) {
     const history = useHistory();
     const [currentDisplay, setCurrentDisplay] = useState(0);
 
+    const nextDisplay = () => setCurrentDisplay((currentDisplay + 1) % data.length);
 
-    useInterval(()=> setCurrentDisplay((currentDisplay + 1) % 6), 5000);
+    useInterval(nextDisplay, 5000);
 
     return <div className={'pageContainer'}>
         <Board>
@@ -20,7 +21,7 @@ export default function DisplayPage(props) {
                 return <SizaineProgressBoard visible={currentDisplay === index} {...sizaine} key={index}/>
             })}
         </Board>
-        <Background onShowSettings={()=>history.push('/settings')}/>
+        <Background onShowSettings={()=>history.push('/settings')} onZukoClick={nextDisplay}/>
     </div>
 
 }

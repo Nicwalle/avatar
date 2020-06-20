@@ -2,16 +2,13 @@ import React from "react";
 import './App.css'
 import DisplayPage from "./pages/DisplayPage";
 import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import SettingsPage from "./pages/SettingsPage";
 import SizaineSettingsPage from "./pages/SizaineSettingsPage";
 import firebaseKey from "./firebaseKey";
-
-// Firebase App (the core Firebase SDK) is always required and
-// must be listed before other Firebase SDKs
 import * as firebase from "firebase/app";
-
-// Add the Firebase services that you want to use
 import "firebase/firestore";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 firebase.initializeApp(firebaseKey);
 
@@ -35,7 +32,6 @@ firebase.firestore().enablePersistence().catch((err) => {
 const db = firebase.firestore();
 
 
-
 export default class App extends React.Component {
 
     constructor(props) {
@@ -44,23 +40,44 @@ export default class App extends React.Component {
             data: [],
             showSettings: false
         };
+
+
+        this.theme = createMuiTheme({
+                palette: {
+                    type: 'dark',
+                    background: {
+                        surface: '#393939'
+                    }
+                },
+            }
+        );
     }
 
     componentDidMount() {
-        db.collection('Sizaines').onSnapshot((sizaines) => {
-            let newData = [];
-            sizaines.forEach(sizaine => {
-                newData = [sizaine.data(), ...newData];
-            });
-            this.setState({data: newData});
-        })
+        this.reloadDataFromFirestore();
     }
 
+    reloadDataFromFirestore = () => db.collection('Sizaines').onSnapshot((sizaines) => {
+        let newData = [];
+        sizaines.forEach(sizaine => {
+            newData = [sizaine.data(), ...newData];
+        });
+        this.setState({data: newData});
+    });
+
+    updateValue = (sizaine, element, value) => {
+        const update = {};
+        update[element] = parseInt(value);
+        db.collection('Sizaines').doc(sizaine).set(update, {merge:true}).then(()=>this.reloadDataFromFirestore());
+    };
+
     render() {
-        return <Router>
+        return <ThemeProvider theme={this.theme}>
+            <CssBaseline/>
+            <Router>
                 <Switch>
-                    <Route path="/settings/:sizaine">
-                        <SizaineSettingsPage data={this.state.data}/>
+                    <Route path="/settings/:sizaineName">
+                        <SizaineSettingsPage data={this.state.data} updateValue={this.updateValue}/>
                     </Route>
                     <Route path="/settings">
                         <SettingsPage data={this.state.data}/>
@@ -69,7 +86,8 @@ export default class App extends React.Component {
                         <DisplayPage data={this.state.data}/>
                     </Route>
                 </Switch>
-        </Router>
+            </Router>
+        </ThemeProvider>
     }
 
 

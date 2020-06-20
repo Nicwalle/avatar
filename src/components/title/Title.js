@@ -9,10 +9,16 @@ import {makeStyles} from "@material-ui/core/styles";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import {ArrowBack} from "@material-ui/icons";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     title: {
         flexGrow: 1,
         textAlign: 'center'
+    },
+    toolbar: {
+        alignItems:'center',
+    },
+    appBar: {
+        backgroundColor: theme.palette.background.paper
     }
 }));
 
@@ -22,9 +28,9 @@ export default function Title(props) {
 
     let {goBack} = props;
 
-    return <AppBar position={'static'}>
+    return <AppBar position={'static'} className={classes.appBar}>
         <Container>
-            <Toolbar style={{alignItems:'center'}}>
+            <Toolbar className={classes.toolbar}>
                 <Typography variant="h6" className={classes.title}>
                     Avatar Progress
                 </Typography>

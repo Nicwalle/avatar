@@ -9,8 +9,8 @@ import {Link} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     cardMedia: {
-        width: 100,
-        height: 100,
+        width: 60,
+        height: 60,
     },
     card: {
         borderRadius: 16,

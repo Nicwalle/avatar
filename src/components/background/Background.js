@@ -8,10 +8,10 @@ import CloudImage4 from '../../assets/images/cloud4.svg';
 import './Background.css';
 
 export default function Background(props) {
-    let {onShowSettings} = props;
+    let {onShowSettings, onZukoClick} = props;
     return <>
         <img src={AangImage} alt={'Aang'} className={'aangImage'} onDoubleClick={onShowSettings}/>
-        <img src={ZukoImage} alt={'Zuko'} className={'zukoImage'}/>
+        <img src={ZukoImage} alt={'Zuko'} className={'zukoImage'} onDoubleClick={onZukoClick}/>
         <img src={CloudImage1} alt={'Cloud'} className={'cloud cloud1'}/>
         <img src={CloudImage2} alt={'Cloud'} className={'cloud cloud2'}/>
         <img src={CloudImage3} alt={'Cloud'} className={'cloud cloud3'}/>
