@@ -9,6 +9,9 @@ import firebaseKey from "./firebaseKey";
 import * as firebase from "firebase/app";
 import "firebase/firestore";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Snackbar from "@material-ui/core/Snackbar";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
 
 firebase.initializeApp(firebaseKey);
 
@@ -38,19 +41,19 @@ export default class App extends React.Component {
         super(props);
         this.state = {
             data: [],
+            changes: [],
             showSettings: false
         };
 
 
         this.theme = createMuiTheme({
-                palette: {
-                    type: 'dark',
-                    background: {
-                        surface: '#393939'
-                    }
-                },
-            }
-        );
+            palette: {
+                type: 'dark',
+                background: {
+                    surface: '#393939'
+                }
+            },
+        });
     }
 
     componentDidMount() {
@@ -62,13 +65,16 @@ export default class App extends React.Component {
         sizaines.forEach(sizaine => {
             newData = [sizaine.data(), ...newData];
         });
-        this.setState({data: newData});
+
+        let changes = [];
+        sizaines.docChanges().forEach(sizaine=> changes = [...changes, sizaine.doc.data().name]);
+        this.setState({data: newData, changes:changes, hasChanged: true});
     });
 
     updateValue = (sizaine, element, value) => {
         const update = {};
         update[element] = parseInt(value);
-        db.collection('Sizaines').doc(sizaine).set(update, {merge:true}).then(()=>this.reloadDataFromFirestore());
+        db.collection('Sizaines').doc(sizaine).set(update, {merge:true})//.then(()=>this.reloadDataFromFirestore());
     };
 
     render() {
@@ -87,8 +93,17 @@ export default class App extends React.Component {
                     </Route>
                 </Switch>
             </Router>
+            <Snackbar
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                }}
+                open={this.state.hasChanged}
+                autoHideDuration={5000}
+                message={`Sizaines synchronisées (${this.state.changes.length}): ${this.state.changes.join(", ")}`}
+                onClose={()=> this.setState({hasChanged: false})}
+            />
         </ThemeProvider>
     }
-
 
 }
